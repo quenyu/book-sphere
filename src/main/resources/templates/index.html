@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>BookSphere - Главная</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .book-card:hover .book-cover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-white min-h-screen font-[Roboto]">
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    <span class="text-2xl font-bold text-blue-600">BookSphere</span>
+                </a>
+                <div class="flex items-center space-x-6">
+                    <a th:href="@{/login}" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                        Вход
+                    </a>
+                    <a th:href="@{/register}" class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">
+                        Начать бесплатно
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold text-gray-800 mb-6 leading-tight">
+                Читайте. Обсуждайте.<br>
+                <span class="text-blue-600">Открывайте новое</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+                Присоединяйтесь к сообществу любителей книг. Находите новые произведения, делитесь мнением и создавайте свои подборки.
+            </p>
+            <div class="flex justify-center space-x-5">
+                <a th:href="@{/discover}" class="px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all transform hover:-translate-y-1 shadow-lg">
+                    Исследовать книги →
+                </a>
+            </div>
+
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="book-card bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                    <div class="book-cover mb-4 rounded-xl overflow-hidden transition-transform duration-300">
+                        <img src="https://via.placeholder.com/300x400" alt="Обложка книги" class="w-full h-64 object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Путешествие к центру Земли</h3>
+                    <p class="text-gray-600 mb-4">Жюль Верн</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-1 text-yellow-400">
+                            ★★★★☆
+                        </div>
+                        <span class="text-sm text-gray-500">432 страницы</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">BookSphere</h4>
+                    <p class="text-gray-400">Сообщество читателей с 2024</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Открытия</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Новые релизы</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Популярное</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Сообщество</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Форумы</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Блоги</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Поддержка</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Помощь</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2024 BookSphere. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
