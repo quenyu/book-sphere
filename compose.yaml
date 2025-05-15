@@ -1,0 +1,32 @@
+services:
+  book-sphere-db:
+    image: 'postgres:17-alpine'
+    environment:
+      - POSTGRES_DB=book-sphere
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+    ports:
+      - "127.0.0.1:5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d book-sphere"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  book-sphere-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://book-sphere-db:5432/book-sphere
+      JAVA_OPTS: '-Xmx512m'
+    depends_on:
+      book-sphere-db:
+        condition: service_healthy
+
+volumes:
+    postgres-data:
