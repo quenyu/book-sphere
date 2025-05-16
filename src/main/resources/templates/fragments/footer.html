@@ -1,0 +1,7 @@
+<footer th:fragment="main-footer" class="border-t border-dark-700 py-10 mt-20">
+    <div class="max-w-7xl mx-auto px-5 text-center text-gray-400">
+        <p class="text-sm">
+            © <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2024</span> bookSphere. All rights reserved.
+        </p>
+    </div>
+</footer>
