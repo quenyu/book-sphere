@@ -1,9 +1,7 @@
 package com.alice.book_sphere.database.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +10,8 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Getter
+@Setter
 @Table(name = "book")
 public class Book {
 
