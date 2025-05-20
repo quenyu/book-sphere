@@ -5,12 +5,13 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-  datasource:
-    password: password
-    username: postgres
   web:
     locale: en
     locale-resolver: fixed
+  data:
+    redis:
+      host: book-sphere-redis
+      port: 6379
 
 server:
   port: 8080
