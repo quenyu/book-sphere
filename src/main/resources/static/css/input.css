@@ -54,6 +54,11 @@
         border: 0;
     }
 
+    .book-cover {
+        @apply aspect-[2/3] rounded-lg mb-3 transition-all duration-300 group-hover:opacity-90;
+        background-color: var(--color-dark-700);
+    }
+
     .nav-link {
         @apply hover:text-indigo-300 font-medium transition-colors duration-200;
     }

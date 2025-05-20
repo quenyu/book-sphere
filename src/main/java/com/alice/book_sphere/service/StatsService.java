@@ -1,6 +1,7 @@
 package com.alice.book_sphere.service;
 
 import com.alice.book_sphere.database.entity.ReadingHistory;
+import com.alice.book_sphere.database.entity.User;
 import com.alice.book_sphere.dto.ProfileDto;
 import com.alice.book_sphere.dto.RecentActivityDto;
 import com.alice.book_sphere.repository.FavoriteBookRepository;

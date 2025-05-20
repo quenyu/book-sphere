@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>bookSphere | Catalog</title>
+  <link th:href="@{/css/output.css}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen flex flex-col font-sans">
+<nav th:replace="~{fragments/nav.html :: main-nav(showAuthButtons=true)}"></nav>
+
+<main class="flex-grow">
+  <div class="max-w-6xl mx-auto py-16 px-5">
+    <div class="text-center mb-12">
+      <h1 class="text-5xl md:text-6xl font-extrabold gradient-text">Explore Our Library</h1>
+      <p class="mt-4 text-lg text-gray-400">Browse all available books and start reading instantly.</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <a th:each="book : ${books}"
+         th:href="@{|/books/${book.id}/read|}"
+         class="group book-card">
+        <div class="book-cover bg-[url('${book.coverUrl}')] bg-cover bg-center"></div>
+        <h3 class="book-title text-md font-semibold mt-2" th:text="${book.title}">Title</h3>
+        <p class="book-author text-sm text-gray-400" th:text="${book.author}">Author</p>
+      </a>
+    </div>
+  </div>
+</main>
+
+<div th:replace="~{fragments/footer.html :: main-footer}"></div>
+
+<script th:src="@{/js/main.js}" type="text/javascript"></script>
+</body>
+</html>
