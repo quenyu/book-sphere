@@ -32,7 +32,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "auth_provider")
-    private AuthProvider  provider;
+    private AuthProvider provider;
 
     @Column(name = "provider_id")
     private String providerId;

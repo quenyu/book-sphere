@@ -7,6 +7,7 @@ import com.alice.book_sphere.repository.UserRepository;
 import com.alice.book_sphere.database.entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,8 +26,9 @@ public class UserService implements UserDetailsService {
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    @Transactional
     @Override
+    @Transactional
+    @Cacheable(value = "users")
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmailWithRoles(email)
             .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + email));
