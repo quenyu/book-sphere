@@ -85,7 +85,7 @@ Docker Compose will automatically load these variables.
 docker-compose up --build
 ```
 
-* **App**: [http://localhost:8081](http://localhost:8081)
+* **App**: [http://localhost:8080](http://localhost:8080)
 * **PostgreSQL**: localhost:5433
 * **Redis**: localhost:6379
 
