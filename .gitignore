@@ -39,3 +39,4 @@ out/
 /node_modules
 /.idea
 /src/main/resources/static/css/output.css
+.env
