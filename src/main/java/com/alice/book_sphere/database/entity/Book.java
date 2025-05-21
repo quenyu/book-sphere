@@ -23,10 +23,13 @@ public class Book {
 
     private String author;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Column(name = "cover_url", columnDefinition = "TEXT")
     private String coverUrl;
 
+    @Column(name = "content_url", columnDefinition = "TEXT")
     private String contentUrl;
 
     @ManyToMany

@@ -17,20 +17,28 @@
       <p class="mt-4 text-lg text-gray-400">Browse all available books and start reading instantly.</p>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-      <a th:each="book : ${books}"
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+         id="books-container"
+         th:attr="data-size=${size}, data-initial-page=${booksPage.number}">
+      <a th:each="book : ${booksPage.content}"
          th:href="@{|/books/${book.id}/read|}"
          class="group book-card">
-        <div class="book-cover bg-[url('${book.coverUrl}')] bg-cover bg-center"></div>
+        <div class="book-cover"
+             th:style="|background-image: url('${book.coverUrl}');|"></div>
         <h3 class="book-title text-md font-semibold mt-2" th:text="${book.title}">Title</h3>
         <p class="book-author text-sm text-gray-400" th:text="${book.author}">Author</p>
       </a>
     </div>
+
+    <div id="loading-indicator" class="text-center py-6 hidden">
+      Loading more books…
+    </div>
+
   </div>
 </main>
 
 <div th:replace="~{fragments/footer.html :: main-footer}"></div>
 
-<script th:src="@{/js/main.js}" type="text/javascript"></script>
+<script th:src="@{/js/books.js}" type="text/javascript"></script>
 </body>
 </html>
